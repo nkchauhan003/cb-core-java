@@ -19,10 +19,10 @@ public class TbExecutor {
 class Client {
     public static void main(String[] args) {
         List<Runnable> tasks = List.of(
-                () -> System.out.println("Name: " + Thread.currentThread().getName()),
-                () -> System.out.println("Name: " + Thread.currentThread().getName()),
-                () -> System.out.println("Name: " + Thread.currentThread().getName()),
-                () -> System.out.println("Name: " + Thread.currentThread().getName())
+                () -> System.out.println("A: " + Thread.currentThread().getName()),
+                () -> System.out.println("B: " + Thread.currentThread().getName()),
+                () -> System.out.println("C: " + Thread.currentThread().getName()),
+                () -> System.out.println("D: " + Thread.currentThread().getName())
         );
         TbExecutor tbExecutor = new TbExecutor(tasks);
         tbExecutor.execute();
