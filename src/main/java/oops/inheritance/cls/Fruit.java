@@ -22,6 +22,11 @@ public class Fruit {
         System.out.println("BLACK.");
     }
 
+    // can not be overridden
+    public final void thatIsIt() {
+        System.out.println("No more discussion.");
+    }
+
     public List getNames() {
         return null;
     }

@@ -14,6 +14,14 @@ public class Apple extends Fruit {
         System.out.println("RED.");
     }
 
+    /*
+    final methods can not be overridden
+
+    public void thatIsIt() {
+        System.out.println("No more discussion.");
+    }
+    */
+
     public void printPrice() {
         System.out.println("10 rs/kg.");
     }
