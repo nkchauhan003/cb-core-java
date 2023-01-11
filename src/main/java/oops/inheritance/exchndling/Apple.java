@@ -1,5 +1,6 @@
 package oops.inheritance.exchndling;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Apple extends Fruit {
@@ -17,7 +18,7 @@ public class Apple extends Fruit {
     The subclass can also declare any new Runtime Exceptions, but not any new checked exceptions.
     */
 
-    public void printSize() throws IOException, RuntimeException {
+    public void printSize() throws FileNotFoundException, RuntimeException {
         System.out.println("Big Enough !!!");
     }
 
