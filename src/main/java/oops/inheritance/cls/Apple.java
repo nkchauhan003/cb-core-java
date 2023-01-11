@@ -9,9 +9,9 @@ public class Apple extends Fruit {
         System.out.println("Apple.");
     }
 
-    // static methods can not be overridden
+    // Static methods can not be overridden
     public static void printColor() {
-        System.out.println("Fruit.");
+        System.out.println("RED.");
     }
 
     public void printPrice() {
@@ -28,5 +28,4 @@ public class Apple extends Fruit {
     public ArrayList getNames() {
         return null;
     }
-
 }

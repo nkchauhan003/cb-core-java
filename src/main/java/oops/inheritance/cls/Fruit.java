@@ -19,7 +19,7 @@ public class Fruit {
     }
 
     public static void printColor() {
-        System.out.println("Fruit.");
+        System.out.println("BLACK.");
     }
 
     public List getNames() {

@@ -17,6 +17,10 @@ public class App {
         // method not present in superclass can not be called with superclass reference
         // fruit.printPrice(); -- not possible
 
+        // not overridden, calling one from the reference type class
+        fruit.printColor(); // BLACK
+        Fruit.printColor(); // BLACK
+
         // With subclass reference
         Apple apple = new Apple();
 
@@ -31,5 +35,8 @@ public class App {
 
         // method not present in superclass
         apple.printPrice(); // 10 rs/kg.
+
+        Apple.printColor(); // RED
+        apple.printColor(); // RED
     }
 }
