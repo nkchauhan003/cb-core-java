@@ -1,5 +1,7 @@
 package oops.inheritance.cls;
 
+import java.util.List;
+
 public class Fruit {
     boolean isHealthy = true;
 
@@ -18,5 +20,9 @@ public class Fruit {
 
     public static void printColor() {
         System.out.println("Fruit.");
+    }
+
+    public List getNames() {
+        return null;
     }
 }

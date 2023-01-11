@@ -1,5 +1,7 @@
 package oops.inheritance.cls;
 
+import java.util.ArrayList;
+
 public class Apple extends Fruit {
 
     @Override
@@ -19,6 +21,12 @@ public class Apple extends Fruit {
     public boolean isHealthy() {
         // superclass members i.e. isHealthy, can be used directly in a subclass
         return !isHealthy;
+    }
+
+    // An overriding method can also return a subtype of the type returned by the overridden method
+    @Override
+    public ArrayList getNames() {
+        return null;
     }
 
 }
