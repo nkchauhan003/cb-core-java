@@ -48,12 +48,14 @@ public class RaceCondition {
             return count;
         }
 
+        // Not Thread Safe
         public void increment() {
-                count++;
+            count++;
         }
 
+        // Not Thread Safe
         public synchronized void decrement() {
-                count--;
+            count--;
         }
     }
 }
