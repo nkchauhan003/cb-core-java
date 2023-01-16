@@ -54,7 +54,7 @@ public class RaceCondition {
         }
 
         // Not Thread Safe
-        public synchronized void decrement() {
+        public void decrement() {
             count--;
         }
     }
