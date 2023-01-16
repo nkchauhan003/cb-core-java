@@ -2,31 +2,28 @@ package concurrency.threadsafe;
 
 public class AtomicOperations {
 
-    public void methodA() {
-        Object o1 = new Object();
-        Object o2 = new Object();
+    Object o1 = new Object();
+    Object o2 = new Object();
 
+    public void methodA() {
         o1 = o2; // an atomic operation
     }
 
-    public void methodB() {
-        int a = 10;
-        int b = 5;
-        a = b; // an atomic operation
+    int a = 10;
+    int b = 5;
+    long c = 10;
+    long d = 5;
 
-        long c = 10;
-        long d = 5;
+    public void methodB() {
+        a = b; // an atomic operation
         c = d; // may not be atomic
     }
 
-    public void methodC() {
-        int a = 10;
-        int b = 5;
-        a = b; // an atomic operation
+    volatile long e = 10;
+    volatile long f = 5;
 
-        int c = 10;
-        int d = 5;
-        c = d; // may not be atomic
+    public void methodC() {
+        c = d; // an atomic operation
     }
 
 }
