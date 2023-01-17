@@ -47,12 +47,11 @@ public class LockExample {
 
     private static class Counter {
         private MyLock lock;
+        private int count;
 
         public Counter(MyLock lock) {
             this.lock = lock;
         }
-
-        private int count;
 
         public int getCount() {
             return count;

@@ -64,4 +64,13 @@ public class SynchronizedKeyword {
             staticCount--;
         }
     }
+
+    //Reentrance
+    public synchronized void methodX() {
+        methodY();
+    }
+
+    public synchronized void methodY() {
+        // do something
+    }
 }
