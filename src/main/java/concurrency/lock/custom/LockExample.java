@@ -2,7 +2,7 @@ package concurrency.lock.custom;
 
 public class LockExample {
     public static void main(String[] args) throws InterruptedException {
-        Counter counter = new Counter();
+        Counter counter = new Counter(new MyLock());
         CounterIncrementer counterIncrementer = new CounterIncrementer(counter);
         CounterDecrementer counterDecrementer = new CounterDecrementer(counter);
 
@@ -26,7 +26,6 @@ public class LockExample {
             for (int i = 0; i < 10000; i++) {
                 counter.increment();
                 System.out.println(getName() + ": " + counter.getCount());
-
             }
         }
     }
@@ -47,8 +46,12 @@ public class LockExample {
     }
 
     private static class Counter {
+        private MyLock lock;
 
-        MyLock myLock = new MyLock();
+        public Counter(MyLock lock) {
+            this.lock = lock;
+        }
+
         private int count;
 
         public int getCount() {
@@ -56,15 +59,15 @@ public class LockExample {
         }
 
         public void increment() {
-            myLock.lock();
+            lock.lock();
             count++;
-            myLock.unlock();
+            lock.unlock();
         }
 
         public synchronized void decrement() {
-            myLock.lock();
+            lock.lock();
             count--;
-            myLock.unlock();
+            lock.unlock();
         }
     }
 }
