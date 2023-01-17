@@ -2,7 +2,7 @@ package concurrency.threadsafe;
 
 public class Resources {
     public void someMethod() {
-        // Thread safe primitive variable
+        // Thread safe local primitive variable
         int value = 0;
         value++;
     }
