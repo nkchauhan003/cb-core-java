@@ -11,5 +11,7 @@ public class SingleThread {
         executorService.execute(() -> System.out.println(Thread.currentThread().getName() + " running !!!"));
         executorService.execute(() -> System.out.println(Thread.currentThread().getName() + " running !!!"));
         executorService.execute(() -> System.out.println(Thread.currentThread().getName() + " running !!!"));
+
+        executorService.shutdown();
     }
 }
