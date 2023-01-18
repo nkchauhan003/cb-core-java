@@ -1,4 +1,4 @@
-package concurrency.threadpool.executorinterface;
+package concurrency.threadpool;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
