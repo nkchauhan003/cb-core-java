@@ -15,7 +15,7 @@ public class SemaphoresAsLock {
         counterIncrementer.join();
         counterDecrementer.join();
 
-        System.out.println("Count: " + counter.getCount());
+        System.out.println("Count: " + counter.getCount()); // 0
     }
 
     private static class CounterIncrementer extends Thread {
