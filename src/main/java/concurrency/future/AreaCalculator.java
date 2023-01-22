@@ -4,14 +4,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class SquareCalculator {
+public class AreaCalculator {
     private ExecutorService executor
-            = Executors.newSingleThreadExecutor();
+            = Executors.newFixedThreadPool(3);
 
-    public Future<Integer> calculate(Integer input) {
+    public Future<Integer> calculate(int length, int width) {
         return executor.submit(() -> {
-            Thread.sleep(500);
-            return input * input;
+            Thread.sleep(1000);
+            return length * width;
         });
     }
 
