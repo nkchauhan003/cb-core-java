@@ -59,7 +59,7 @@ public class SynchronizedKeyword {
         }
     }
 
-    public static synchronized void decrementStaticBlock() {
+    public static void decrementStaticBlock() {
         synchronized (SynchronizedKeyword.class) {
             staticCount--;
         }
