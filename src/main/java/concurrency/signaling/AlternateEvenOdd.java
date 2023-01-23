@@ -1,4 +1,4 @@
-package concurrency.exercise;
+package concurrency.signaling;
 
 public class AlternateEvenOdd {
     public static void main(String[] args) {
