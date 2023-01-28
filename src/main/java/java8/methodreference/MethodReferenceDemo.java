@@ -8,7 +8,7 @@ public class MethodReferenceDemo {
         List<String> fruits = Arrays.asList("Apple", "Orange", "Guava");
 
         // using "Lambda"
-        fruits.stream().forEach(name -> System.out.print(name));
+        fruits.stream().forEach(name -> System.out.println(name));
 
         // using "Method reference"
         fruits.stream().forEach(System.out::println);
