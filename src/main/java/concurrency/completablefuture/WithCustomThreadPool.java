@@ -27,6 +27,4 @@ public class WithCustomThreadPool {
         completableFuture.get();
         System.out.println(Thread.currentThread().getName() + " running..");
     }
-
-
 }

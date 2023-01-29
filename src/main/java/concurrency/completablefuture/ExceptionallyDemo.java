@@ -4,7 +4,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class ExceptionallyDemo {
-
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         String name = null;
         CompletableFuture<String> completableFuture = CompletableFuture
