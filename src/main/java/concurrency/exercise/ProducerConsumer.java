@@ -1,13 +1,10 @@
 package concurrency.exercise;
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class ProducerConsumer {
-    private static int size = 10;
-
     public static void main(String[] args) {
-        Task task = new Task();
+        Task task = new Task(10);
         Thread producer = new Thread(() -> {
             try {
                 while (true) {
@@ -17,7 +14,6 @@ public class ProducerConsumer {
                 throw new RuntimeException(e);
             }
         });
-
         Thread consumer = new Thread(() -> {
             try {
                 while (true) {
@@ -30,19 +26,22 @@ public class ProducerConsumer {
         producer.start();
         consumer.start();
     }
-
     private static class Task extends Thread {
-        private Queue<String> queue = new LinkedList<>();
 
+        private static int size;
+        private LinkedList<String> linkedList = new LinkedList<>();
+
+        public Task(int size) {
+            this.size = size;
+        }
         public synchronized void produce() throws InterruptedException {
-            while (queue.size() == size) wait();
-            System.out.println("Produced: " + queue.add("Something !!!") + " : " + queue.size());
+            while (linkedList.size() == size) wait();
+            System.out.println("Produced: " + linkedList.add("Something !!!") + ", Queue size: " + linkedList.size());
             notify();
         }
-
         public synchronized void consume() throws InterruptedException {
-            while (queue.isEmpty()) wait();
-            System.out.println("Consumed: " + queue.remove() + " : " + queue.size());
+            while (linkedList.isEmpty()) wait();
+            System.out.println("Consumed: " + linkedList.removeFirst() + ", Queue size: " + linkedList.size());
             notify();
         }
     }
