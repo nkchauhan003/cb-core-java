@@ -5,43 +5,27 @@ import java.util.concurrent.BlockingQueue;
 
 public class ProducerConsumerBlockingQueue {
     public static void main(String[] args) {
-        Task task = new Task(10);
+        BlockingQueue<String> queue = new ArrayBlockingQueue<>(10);
         Thread producer = new Thread(() -> {
-            try {
-                while (true) {
-                    task.produce();
+            while (true) {
+                try {
+                    queue.put("Something !!!");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
             }
         });
         Thread consumer = new Thread(() -> {
-            try {
-                while (true) {
-                    task.consume();
+            while (true) {
+                try {
+                    System.out.println(
+                            "Consumed: " + queue.take() + ", RemainingCapacity: " + queue.remainingCapacity());
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
             }
         });
         producer.start();
         consumer.start();
-    }
-
-    private static class Task {
-        private BlockingQueue<String> queue;
-
-        public Task(int size) {
-            queue = new ArrayBlockingQueue<>(size);
-        }
-
-        public void produce() throws InterruptedException {
-            queue.put("Something !!!");
-        }
-
-        public void consume() throws InterruptedException {
-            System.out.println("Consumed: " + queue.take() + ", RemainingCapacity: " + queue.remainingCapacity());
-
-        }
     }
 }
