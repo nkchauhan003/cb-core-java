@@ -1,8 +1,9 @@
 package concurrency.exercise;
 
-import java.util.LinkedList;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
-public class ProducerConsumer {
+public class ProducerConsumerBlockingQueue {
     public static void main(String[] args) {
         Task task = new Task(10);
         Thread producer = new Thread(() -> {
@@ -26,23 +27,21 @@ public class ProducerConsumer {
         producer.start();
         consumer.start();
     }
-    private static class Task {
 
-        private static int size;
-        private LinkedList<String> linkedList = new LinkedList<>();
+    private static class Task {
+        private BlockingQueue<String> queue;
 
         public Task(int size) {
-            this.size = size;
+            queue = new ArrayBlockingQueue<>(size);
         }
-        public synchronized void produce() throws InterruptedException {
-            while (linkedList.size() == size) wait();
-            System.out.println("Produced: " + linkedList.add("Something !!!") + ", Queue size: " + linkedList.size());
-            notify();
+
+        public void produce() throws InterruptedException {
+            queue.put("Something !!!");
         }
-        public synchronized void consume() throws InterruptedException {
-            while (linkedList.isEmpty()) wait();
-            System.out.println("Consumed: " + linkedList.removeFirst() + ", Queue size: " + linkedList.size());
-            notify();
+
+        public void consume() throws InterruptedException {
+            System.out.println("Consumed: " + queue.take() + ", RemainingCapacity: " + queue.remainingCapacity());
+
         }
     }
 }
